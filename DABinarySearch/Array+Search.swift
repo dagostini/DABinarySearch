@@ -13,10 +13,10 @@ extension Array where Element: Comparable {
     func search(element: Element) -> Int? {
         
         var low = 0
-        var high = count
+        var high = count - 1
         var mid = Int(high / 2)
         
-        while low < high {
+        while low <= high {
             
             let midElement = self[mid]
             
@@ -24,10 +24,10 @@ extension Array where Element: Comparable {
                 return mid
             }
             else if element < midElement {
-                high = mid
+                high = mid - 1
             }
             else {
-                low = mid
+                low = mid + 1
             }
             
             mid = (low + high) / 2
